@@ -30,8 +30,6 @@ function SubCategory:loadAchievements()
 end
 
 function SubCategory:toDump()
-  self:loadAchievements()
-
   subcategory = {
     name = self.name,
     achievementCount = self.achievementCount,

@@ -12,3 +12,9 @@ function Achievement.new(id)
 
   return self
 end
+
+function Achievement:toDump()
+  achievement = { name = self.name, description = self.description, points = self.points }
+
+  return achievement
+end
