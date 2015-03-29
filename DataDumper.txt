@@ -3,5 +3,8 @@
 ## APIVersion: 100011
 ## SavedVariables: Achievements
 
+Category.lua
+SubCategory.lua
+Achievement.lua
 DataDumper.lua
 DumpAchievements.lua
