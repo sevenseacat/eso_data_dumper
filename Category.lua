@@ -27,12 +27,16 @@ function Category:toDump()
   category = {
     name = self.name,
     subCategoryCount = self.subCategoryCount,
-    achievementCount = self.achievementCount,
     pointsCount = self.pointsCount,
   }
 
   if self.subCategoryCount > 0 then
     category["subCategories"] = subCategoryDump
+    if self.achievementCount > 0 then
+      category["subCategoryCount"] = category["subCategoryCount"] + 1
+    end
+  else
+    category["achievementCount"] = self.achievementCount
   end
 
   return category
@@ -56,4 +60,17 @@ function Category:loadSubCategories()
     general.pointsCount = self.pointsCount - subCategoryPointsCount
     self.subCategories[1] = general
   end
+end
+
+function Category:totalAchievementCount()
+  if self.subCategoryCount == 0 then
+    count = self.achievementCount
+  else
+    count = 0
+    for index, subCategory in pairs(self.subCategories) do
+      count = count + subCategory.achievementCount
+    end
+  end
+
+  return count
 end
