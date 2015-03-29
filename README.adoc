@@ -1,0 +1,29 @@
+= ESO Data Dumper
+
+An Elder Scrolls Online addon for dumping data for use in other applications.
+The end goal would be to have this data fed into a web app powered by Rails,
+and then served via an API for an Ember or Angular single-page app. A girl
+can dream.
+
+If you actually want to use this add-on in your own game (dunno why, but anyway)
+clone the repo into a `C:\Users\[your username]\My Documents\Elder Scrolls Online\live\addons\Data Dumper`
+folder. Start the game, and you will be able to enable the "Data Dumper" addon.
+
+== To use the addon:
+
+`/dump achievements` in the chat window will save all achievement data.
+
+Then either quit the game or `/reloadui` to have the data saved out to file.
+
+The file containing all of the data will be found in:
+`C:\Users\[your username]\My Documents\Elder Scrolls Online\live\SavedVariables\DataDumper.lua`
+
+This is a valid Lua file meant to be read and interpreted by another Lua script.
+
+== If it doesn't work:
+
+File an issue.
+
+== Features coming soon:
+
+See the TODO file.

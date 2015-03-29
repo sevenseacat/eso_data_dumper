@@ -1,0 +1,12 @@
+Account-wide:
+
+  ☐ Include in-line achievements in the category and sub-category totals
+     eg. "Provisioning" is listed as 5, but it actually has 7 because "Recipe Book"
+     and "Recipe Compendium" are in-line after "Recipe Card"
+  ☐ Include Achievement criteria
+  ☐ Include Achievement rewards
+  ☐ Find some way to get icons for both categories and sub-categories...
+
+Character-specific:
+
+  ☐ List each achievement ID, with the timestamp of their achievement.
