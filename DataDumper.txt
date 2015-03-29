@@ -1,7 +1,7 @@
 ## Title: Data Dumper
 ## Author: Rebecca Skinner (@sevenseacat)
 ## APIVersion: 100011
-## SavedVariables: Dumper_Achievements
+## SavedVariables: Achievements
 
 DataDumper.lua
 DumpAchievements.lua

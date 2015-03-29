@@ -3,7 +3,7 @@ DataDumper.name = "DataDumper"
 
 -- Initialization code for the addon.
 function DataDumper:Initialize()
-  DataDumper.achievements = ZO_SavedVars:NewAccountWide("Dumper_Achievements", 1)
+  DataDumper.achievements = ZO_SavedVars:NewAccountWide("Achievements", 1)
 end
 
 function DataDumper.OnAddOnLoaded(event, addonName)
