@@ -8,7 +8,6 @@ function DataDumper.DumpAchievements()
 
   for index = 1, GetNumAchievementCategories() do
     category = Category.new(index)
-    achievementCount = achievementCount + category:totalAchievementCount()
 
     -- Pull out all of the achievement details and store them separately
     DataDumper.DumpCollection(category.achievements)
@@ -18,6 +17,7 @@ function DataDumper.DumpAchievements()
       DataDumper.DumpCollection(subCategory.achievements)
     end
 
+    achievementCount = achievementCount + category:totalAchievementCount()
     DataDumper.achievements["Categories"][index] = category:toDump()
   end
 
@@ -30,7 +30,7 @@ function DataDumper.DumpCollection(collection)
   for _, achievement in pairs(collection) do
     DataDumper.DumpAchievement(achievement)
 
-    while achievement.nextInLine ~= 0 do
+    while achievement.nextInLine do
       achievement = Achievement.new(achievement.nextInLine)
       DataDumper.DumpAchievement(achievement)
     end

@@ -13,6 +13,7 @@ function Category.new(id)
   self.pointsCount = GetAchievementCategoryInfo(self.id)
   self.subCategories = {}
   self.achievements = {}
+  self.isWorth = 0
 
   self:loadSubCategories()
   self:loadAchievements()
@@ -31,6 +32,7 @@ function Category:toDump()
     name = self.name,
     subCategoryCount = self.subCategoryCount,
     pointsCount = self.pointsCount,
+    achievementCount = self:totalAchievementCount()
   }
 
   if self.subCategoryCount > 0 then
@@ -39,8 +41,6 @@ function Category:toDump()
       category["subCategoryCount"] = category["subCategoryCount"] + 1
     end
   else
-    category["achievementCount"] = self.achievementCount
-
     achievementIds = {}
     for index, achievement in pairs(self.achievements) do
       achievementIds[index] = achievement.id
@@ -74,20 +74,22 @@ end
 function Category:loadAchievements()
   if self.subCategoryCount == 0 then
     for index = 1, self.achievementCount do
-      self.achievements[index] = Achievement.new(
+      ach = Achievement.new(
         GetAchievementId(self.id, nil, index)
       )
+      self.achievements[index] = ach
+      self.isWorth = self.isWorth + ach.isWorth
     end
   end
 end
 
 function Category:totalAchievementCount()
   if self.subCategoryCount == 0 then
-    count = self.achievementCount
+    count = self.isWorth
   else
     count = 0
     for index, subCategory in pairs(self.subCategories) do
-      count = count + subCategory.achievementCount
+      count = count + subCategory.isWorth
     end
   end
 

@@ -8,6 +8,7 @@ function SubCategory.new(parentId, id)
   self.parentId = parentId
   self.id = id
   self.achievements = {}
+  self.isWorth = 0
 
   if self.id ~= nil then
     self.name,
@@ -23,16 +24,18 @@ end
 
 function SubCategory:loadAchievements()
   for index = 1, self.achievementCount do
-    self.achievements[index] = Achievement.new(
+    ach = Achievement.new(
       GetAchievementId(self.parentId, self.id, index)
     )
+    self.achievements[index] = ach
+    self.isWorth = self.isWorth + ach.isWorth
   end
 end
 
 function SubCategory:toDump()
   subcategory = {
     name = self.name,
-    achievementCount = self.achievementCount,
+    achievementCount = self.isWorth,
     pointsCount = self.pointsCount
   }
 
