@@ -28,15 +28,36 @@ function Achievement.new(id)
     end
   end
 
+  self:loadRewards()
+
   return self
 end
 
 function Achievement:toDump()
-  achievement = { name = self.name, description = self.description, points = self.points }
+  achievement = { name = self.name, description = self.description, points = self.points, rewards = self.rewards }
 
   if self.nextInLine then
     achievement["nextInLine"] = self.nextInLine
   end
 
   return achievement
+end
+
+function Achievement:loadRewards()
+  self.rewards = {}
+
+  isAReward, rewardId = GetAchievementRewardDye(self.id)
+  if isAReward then
+    self.rewards["dyeId"] = rewardId
+  end
+
+  isAReward, rewardName = GetAchievementRewardItem(self.id)
+  if isAReward then
+    self.rewards["item"] = rewardName
+  end
+
+  isAReward, rewardName = GetAchievementRewardTitle(self.id)
+  if isAReward then
+    self.rewards["title"] = rewardName
+  end
 end
