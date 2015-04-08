@@ -1,7 +1,7 @@
 function DataDumper.DumpAchievements()
   d("DataDumper: Dumping achievements...")
-  DataDumper.achievements["Categories"] = {}
-  DataDumper.achievements["Achievements"] = {}
+  DataDumper.categories["list"] = {}
+  DataDumper.achievements["list"] = {}
 
   --  To keep a running tally of total achievement count
   achievementCount = 0
@@ -18,10 +18,10 @@ function DataDumper.DumpAchievements()
     end
 
     achievementCount = achievementCount + category:totalAchievementCount()
-    DataDumper.achievements["Categories"][index] = category:toDump()
+    DataDumper.categories["list"][index] = category:toDump()
   end
 
-  DataDumper.achievements["Summary"] =
+  DataDumper.achievements["summary"] =
     { achievementCount = achievementCount, pointsCount = GetTotalAchievementPoints() }
   d("DataDumper: Done.")
 end
@@ -38,5 +38,6 @@ function DataDumper.DumpCollection(collection)
 end
 
 function DataDumper.DumpAchievement(achievement)
-  DataDumper.achievements["Achievements"][achievement.id] = achievement:toDump()
+  current_count = #DataDumper.achievements["list"]
+  DataDumper.achievements["list"][current_count+1] = achievement:toDump()
 end

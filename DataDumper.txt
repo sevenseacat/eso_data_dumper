@@ -1,10 +1,12 @@
 ## Title: Data Dumper
 ## Author: Rebecca Skinner (@sevenseacat)
 ## APIVersion: 100011
-## SavedVariables: Achievements
+## SavedVariables: Achievements Dyes Categories
 
 Category.lua
 SubCategory.lua
 Achievement.lua
+Dye.lua
 DataDumper.lua
 DumpAchievements.lua
+DumpDyes.lua

@@ -3,7 +3,9 @@ DataDumper.name = "DataDumper"
 
 -- Initialization code for the addon.
 function DataDumper:Initialize()
-  DataDumper.achievements = ZO_SavedVars:NewAccountWide("Achievements", 14)
+  DataDumper.achievements = ZO_SavedVars:NewAccountWide("Achievements", 1)
+  DataDumper.dyes = ZO_SavedVars:NewAccountWide("Dyes", 1)
+  DataDumper.categories = ZO_SavedVars:NewAccountWide("Categories", 1)
 end
 
 function DataDumper.OnAddOnLoaded(event, addonName)
@@ -16,8 +18,10 @@ end
 function DataDumper.Dump(dumpType)
   if dumpType == "achievements" then
     DataDumper.DumpAchievements()
+  elseif dumpType == "dyes" then
+    DataDumper.DumpDyes()
   else
-    d("DataDumper: Valid dump types are 'achievements' and 'quests'")
+    d("DataDumper: Valid dump types are 'achievements', 'dyes' and 'quests'")
   end
 end
 

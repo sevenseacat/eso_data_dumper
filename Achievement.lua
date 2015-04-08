@@ -34,7 +34,7 @@ function Achievement.new(id)
 end
 
 function Achievement:toDump()
-  achievement = { name = self.name, description = self.description, points = self.points, rewards = self.rewards }
+  achievement = { id = self.id, name = self.name, description = self.description, points = self.points, rewards = self.rewards }
 
   if self.nextInLine then
     achievement["nextInLine"] = self.nextInLine
