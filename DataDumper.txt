@@ -3,10 +3,10 @@
 ## APIVersion: 100011
 ## SavedVariables: Achievements Dyes Categories
 
-Category.lua
-SubCategory.lua
-Achievement.lua
-Dye.lua
+models/Category.lua
+models/SubCategory.lua
+models/Achievement.lua
+models/Dye.lua
 DataDumper.lua
 DumpAchievements.lua
 DumpDyes.lua
