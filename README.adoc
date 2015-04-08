@@ -11,14 +11,28 @@ folder. Start the game, and you will be able to enable the "Data Dumper" addon.
 
 == To use the addon:
 
-`/dump achievements` in the chat window will save all achievement data.
+In the chat winodow:
+`/dump achievements` will save all achievement data.
+`/dump dyes` will save all dye data.
 
 Then either quit the game or `/reloadui` to have the data saved out to file.
 
 The file containing all of the data will be found in:
 `C:\Users\[your username]\My Documents\Elder Scrolls Online\live\SavedVariables\DataDumper.lua`
 
-This is a valid Lua file meant to be read and interpreted by another Lua script.
+This is a valid Lua file meant to be read and interpreted by another Lua script - and here's one I prepared earlier!
+
+=== JSON encoder
+
+JSON is a much friendlier format than Lua! So here's how to convert it to JSON format!
+
+Requirements:
+
+* Lua 5.2
+* dkjson 2.5-2
+
+Run `lua JsonEncoder \path\to\your\DataDumper.lua` and you'll get a nice `output` folder in your add-on folder, filled
+with JSON goodies. Yay!
 
 == If it doesn't work:
 
