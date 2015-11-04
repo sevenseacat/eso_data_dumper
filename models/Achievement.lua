@@ -29,12 +29,13 @@ function Achievement.new(id)
   end
 
   self:loadRewards()
+  self:loadCriteria()
 
   return self
 end
 
 function Achievement:toDump()
-  achievement = { id = self.id, name = self.name, description = self.description, points = self.points, rewards = self.rewards }
+  achievement = { id = self.id, name = self.name, description = self.description, points = self.points, rewards = self.rewards, criteria = self.criteria }
 
   if self.nextInLine then
     achievement["nextInLine"] = self.nextInLine
@@ -59,5 +60,20 @@ function Achievement:loadRewards()
   isAReward, rewardName = GetAchievementRewardTitle(self.id)
   if isAReward then
     self.rewards["title"] = rewardName
+  end
+end
+
+function Achievement:loadCriteria()
+  self.criteria = {}
+
+  for index = 1, GetAchievementNumCriteria(self.id) do
+    description, _, numRequired = GetAchievementCriterion(self.id, index)
+    if description ~= self.name then
+      criterion = { description = description }
+      if numRequired > 1 then
+        criterion["numRequired"] = numRequired
+      end
+      self.criteria[index] = criterion
+    end
   end
 end

@@ -3,7 +3,7 @@ Account-wide:
   ✔ Include in-line achievements in the category and sub-category totals @done (15-04-03 20:46)
      eg. "Provisioning" is listed as 5, but it actually has 7 because "Recipe Book"
      and "Recipe Compendium" are in-line after "Recipe Card"
-  ☐ Include Achievement criteria
+  ✔ Include Achievement criteria @done (15-11-04 19:30)
   ✔ Include Achievement rewards @done (15-04-07 16:30)
   ☐ Find some way to get icons for both categories and sub-categories...
   ✔ Include dye list  @done (15-04-08 20:45)
